@@ -8,14 +8,13 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  User,
-  Settings,
   Sun,
   Moon,
   Inbox,
   Building2,
   Search,
-  BarChart3
+  BarChart3,
+  LifeBuoy
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
@@ -154,22 +153,14 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
                   </div>
                 </div>
                 <div className="account-dropdown-divider" />
-                <Link 
-                  to="/account" 
+                <a 
+                  href={`mailto:support@ceevaa.ai?subject=${encodeURIComponent(`${user?.account_id} - Support Request - <Provide an issue subject>`)}&body=${encodeURIComponent(`Hello Team,\n\nIssue: <Explain your issue here>\nScreenshot: <Provide any screenshots if available>\n\nRegards,\n${user?.first_name || ''}`)}`}
                   className="account-dropdown-item"
                   onClick={handleAccountClick}
                 >
-                  <User size={16} />
-                  <span>Account Details</span>
-                </Link>
-                <Link 
-                  to="/settings" 
-                  className="account-dropdown-item"
-                  onClick={handleAccountClick}
-                >
-                  <Settings size={16} />
-                  <span>Settings</span>
-                </Link>
+                  <LifeBuoy size={16} />
+                  <span>Support</span>
+                </a>
                 <button 
                   className="account-dropdown-item"
                   onClick={toggleTheme}
