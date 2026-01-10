@@ -1,0 +1,147 @@
+.bulk-actions-toolbar {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  padding: 10px 12px;
+  box-shadow: none;
+}
+
+.bulk-actions-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.selection-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+}
+
+.selection-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-primary);
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.selection-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.selection-hint {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.85;
+  background: var(--card-bg);
+  padding: 4px 8px;
+  border: 1px dashed var(--border-primary);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.bulk-actions-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.bulk-actions-buttons .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.bulk-actions-buttons .btn-primary {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  border: none;
+}
+
+.bulk-actions-buttons .btn-primary:hover:not(:disabled) {
+  background: var(--accent-primary-hover);
+}
+
+.bulk-actions-buttons .btn-primary:disabled {
+  background: var(--bg-tertiary);
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+}
+
+.bulk-actions-buttons .btn-outline {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+}
+
+.bulk-actions-buttons .btn-outline:hover:not(:disabled) {
+  background: var(--error-bg, #fef2f2);
+  border-color: var(--error, #dc2626);
+  color: var(--error, #dc2626);
+}
+
+.bulk-actions-buttons .btn-outline:disabled {
+  background: var(--card-bg);
+  color: var(--text-tertiary);
+  border-color: var(--border-primary);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.clear-selection-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: var(--card-bg);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-left: 8px;
+}
+
+.clear-selection-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.clear-selection-btn:hover {
+  background: var(--bg-tertiary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bulk-actions-content {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .bulk-actions-buttons {
+    width: 100%;
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+
+  .clear-selection-btn {
+    position: static;
+    margin-left: 0;
+  }
+}
+

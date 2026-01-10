@@ -1,0 +1,392 @@
+/* Enroll Modal - matches ManualLeadModal styles */
+.enroll-modal {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  background: var(--card-bg);
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.enroll-modal .modal-close-btn {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-tertiary);
+  border: none;
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 10;
+}
+
+.enroll-modal .modal-close-btn:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.enroll-modal .modal-header {
+  padding: var(--space-6) var(--space-6) var(--space-4);
+  text-align: center;
+}
+
+.enroll-modal .modal-header h2 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.enroll-modal .modal-body {
+  padding: 0 var(--space-6) var(--space-4);
+  overflow-y: auto;
+  flex: 1;
+}
+
+.enroll-modal .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--border-primary);
+  background: var(--bg-secondary);
+}
+
+.enroll-loading,
+.enroll-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.enroll-loading .spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.enroll-loading span {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.enroll-empty h3 {
+  margin: 16px 0 8px;
+  color: var(--color-text-primary);
+  font-size: 18px;
+}
+
+.enroll-empty p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.enroll-empty .enroll-hint {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--color-primary);
+}
+
+.enroll-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--color-error-bg, #fef2f2);
+  border: 1px solid var(--color-error-border, #fecaca);
+  border-radius: 8px;
+  color: var(--color-error, #dc2626);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* Campaign Selection */
+.campaign-selection {
+  margin-bottom: 20px;
+}
+
+.selection-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 10px;
+}
+
+.campaign-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campaign-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.campaign-option:hover {
+  border-color: var(--color-primary-light, #a5b4fc);
+  background: var(--color-bg-hover);
+}
+
+.campaign-option.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-bg, #eef2ff);
+}
+
+.campaign-option-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.campaign-option.selected .campaign-option-radio {
+  border-color: var(--color-primary);
+}
+
+.radio-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: transparent;
+  transition: all 0.15s ease;
+}
+
+.campaign-option.selected .radio-dot {
+  background: var(--color-primary);
+}
+
+.campaign-option-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.campaign-name {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-size: 15px;
+}
+
+.campaign-steps {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+/* Leads Preview */
+.leads-preview {
+  margin-bottom: 20px;
+}
+
+.leads-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 150px;
+  overflow-y: auto;
+  padding: 12px;
+  background: var(--color-bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.lead-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.lead-item svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.lead-business {
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.lead-email {
+  color: var(--color-text-tertiary);
+  font-size: 12px;
+}
+
+.lead-item.more {
+  color: var(--color-text-tertiary);
+  font-style: italic;
+  padding-top: 4px;
+  border-top: 1px solid var(--color-border);
+  margin-top: 4px;
+}
+
+/* Warning */
+.enroll-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--color-warning-bg, #fffbeb);
+  border: 1px solid var(--color-warning-border, #fde68a);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--color-warning-text, #92400e);
+  line-height: 1.5;
+}
+
+.enroll-warning svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.enroll-warning strong {
+  color: var(--color-warning-strong, #78350f);
+}
+
+/* Result */
+.enroll-result {
+  padding: 20px 0;
+}
+
+.result-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.result-summary.success {
+  background: var(--color-success-bg, #f0fdf4);
+  color: var(--color-success, #16a34a);
+}
+
+.result-summary.warning {
+  background: var(--color-warning-bg, #fffbeb);
+  color: var(--color-warning-text, #92400e);
+}
+
+.result-summary h3 {
+  margin: 12px 0 4px;
+  font-size: 18px;
+}
+
+.result-failed {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.result-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.result-item.success {
+  background: var(--color-success-bg, #f0fdf4);
+}
+
+.result-item.failed {
+  background: var(--color-error-bg, #fef2f2);
+}
+
+.result-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.result-item.success .result-icon {
+  color: var(--color-success, #16a34a);
+}
+
+.result-item.failed .result-icon {
+  color: var(--color-error, #dc2626);
+}
+
+.result-business {
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.result-message {
+  color: var(--color-text-secondary);
+  margin-left: auto;
+  font-size: 12px;
+}
+
+/* Modal Footer */
+.enroll-modal .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.enroll-modal .modal-footer .btn {
+  min-width: 100px;
+}
+
+.enroll-modal .modal-footer .btn .spinning {
+  margin-right: 6px;
+}
+
