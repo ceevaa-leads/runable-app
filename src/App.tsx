@@ -4,7 +4,6 @@ import { AuthProvider } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { DashboardLayout } from './components/layout/DashboardLayout';
-import { LandingPage } from './pages/landing/LandingPage';
 import { LoginPage } from './pages/auth/LoginPage';
 import { SignupPage } from './pages/auth/SignupPage';
 import { SearchPage } from './pages/search/SearchPage';
@@ -33,7 +32,6 @@ function App() {
           <BrowserRouter>
             <Routes>
               {/* Public Routes */}
-              <Route path="/" element={<LandingPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
               
@@ -54,9 +52,10 @@ function App() {
                 <Route path="/dashboard/contacts/:contactId/emails" element={<ContactEmailsPage />} />
               </Route>
               
-              {/* Default redirect for unknown routes */}
+              {/* Default redirects */}
+              <Route path="/" element={<Navigate to="/login" replace />} />
               <Route path="/dashboard" element={<Navigate to="/search" replace />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
+              <Route path="*" element={<Navigate to="/login" replace />} />
             </Routes>
           </BrowserRouter>
         </AuthProvider>
