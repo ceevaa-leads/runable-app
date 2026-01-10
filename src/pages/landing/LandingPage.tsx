@@ -12,9 +12,6 @@ import {
   ArrowRight,
   Sparkles,
   Globe,
-  Send,
-  Clock,
-  Shield,
   TrendingUp,
   Linkedin,
   Building2
