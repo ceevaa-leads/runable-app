@@ -84,7 +84,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
         <div className="sidebar-header">
           <Link to="/search" className="sidebar-logo-link">
             <Logo size={sidebarCollapsed ? 'sm' : 'md'} />
-            {!sidebarCollapsed && <span className="sidebar-brand">Ceevaa</span>}
+            {!sidebarCollapsed && <span className="sidebar-brand">CeeVaa</span>}
           </Link>
           <button 
             className="sidebar-close"

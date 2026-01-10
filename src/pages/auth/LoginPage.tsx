@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Mail, Lock, Zap, Target, TrendingUp, Shield } from 'lucide-react';
+import { Mail, Lock, Zap, Target, TrendingUp, Shield, LifeBuoy } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useForm } from '../../hooks/useForm';
 import { Input } from '../../components/ui/Input';
@@ -9,6 +9,8 @@ import { Alert } from '../../components/ui/Alert';
 import { Logo } from '../../components/Logo';
 import { ThemeToggle } from '../../components/ui/ThemeToggle';
 import type { LoginRequest } from '../../types/auth.types';
+
+const supportEmailHref = `mailto:support@ceevaa.ai?subject=${encodeURIComponent('Support Request - <Provide an issue subject>')}&body=${encodeURIComponent('Hello Team,\n\nIssue: <Explain your issue here>\nScreenshot: <Provide any screenshots if available>\n\nRegards,\n')}`;
 
 const validateLogin = (values: LoginRequest): Partial<Record<keyof LoginRequest, string>> => {
   const errors: Partial<Record<keyof LoginRequest, string>> = {};
@@ -81,7 +83,7 @@ export const LoginPage: React.FC = () => {
         <div className="auth-hero-content">
           <div className="auth-hero-header">
             <Logo size="xl" />
-            <h1>Ceevaa</h1>
+            <h1>CeeVaa</h1>
             <p className="auth-hero-tagline">
               Lead Generation for Local Service Businesses
             </p>
@@ -125,6 +127,13 @@ export const LoginPage: React.FC = () => {
       {/* Right Panel - Login Form */}
       <div className="auth-form-panel">
         <div className="auth-form-header">
+          <a 
+            href={supportEmailHref}
+            className="auth-support-link"
+            title="Contact Support"
+          >
+            <LifeBuoy size={20} />
+          </a>
           <ThemeToggle />
         </div>
 
@@ -163,6 +172,7 @@ export const LoginPage: React.FC = () => {
               onBlur={handleBlur}
               error={touched.password ? errors.password : undefined}
               autoComplete="current-password"
+              showPasswordToggle
             />
 
             <div className="auth-options">
@@ -186,7 +196,7 @@ export const LoginPage: React.FC = () => {
             <p>
               Don't have an account?{' '}
               <Link to="/signup" className="auth-link">
-                Get started free
+                Get started
               </Link>
             </p>
           </div>

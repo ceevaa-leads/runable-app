@@ -373,6 +373,28 @@ a:hover {
   color: var(--error);
 }
 
+.input-field.has-toggle {
+  padding-right: calc(var(--space-4) + 24px + var(--space-2));
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: var(--space-3);
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: var(--space-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-fast);
+}
+
+.password-toggle-btn:hover {
+  color: var(--text-secondary);
+}
+
 /* ============================================
    Alert Styles
    ============================================ */
@@ -711,7 +733,24 @@ a:hover {
 .auth-form-header {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-3);
   margin-bottom: var(--space-4);
+}
+
+.auth-support-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.auth-support-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-secondary);
 }
 
 .auth-form-container {
